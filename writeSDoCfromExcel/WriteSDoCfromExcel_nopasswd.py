@@ -1,4 +1,6 @@
 """
+https://github.com/KBNLwikimedia/SDoC/tree/main/writeSDoCfromExcel
+
 This scripts writes Property-Qid pairs from an Excel sheet to the Structured Data of a file on Wikimedia Commons using the Commons API.
 For instance it can write P180-Depicts --> Q284865 to https://commons.wikimedia.org/wiki/File:Atlas_Schoemaker-UTRECHT-DEEL1-3120-Utrecht,_Utrecht.jpeg
 See P180Inputfile.xlsx for the expected input format and column names (This example Excel is about adding P180-Depicts values to a Commons file,
@@ -78,8 +80,8 @@ api_url = 'https://commons.wikimedia.org/w/api.php'
 
 # Your Wikimedia credentials
 # If left blank, or if incorrect (eg wrong passwd), the edit will still be done, but will be shown as done from your IP address
-USER=u'yourusername'
-PASS=u'yourpass'
+USER=u'your-wikimedia-username'
+PASS=u'your-wikimedia-passwd'
 USER_AGENT='%s adding Qids to SDoC using a Python script and the Common API' % (USER)
 
 headers={'User-Agent': USER_AGENT}
