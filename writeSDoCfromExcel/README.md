@@ -11,11 +11,16 @@ Althought mainly intended to add P180-values in bulk, this script is also able t
 The Python and the Excel files need to be in the same folder/directory.
 
 As you can see from the example Excel [P180Inputfile.xlsx](P180Inputfile.xlsx?raw=true), the script expects 3 inputs, corresponding to column names in the sheet:
-* **CommonsFile**:  the title of the file on Wikimedia Commons, eg. [File:Atlas Schoemaker-UTRECHT-DEEL1-3120-Utrecht, Utrecht.jpeg](https://commons.wikimedia.org/wiki/File:Atlas_Schoemaker-UTRECHT-DEEL1-3120-Utrecht,_Utrecht.jpeg)
+* **CommonsFile**:  the title of the file on Wikimedia Commons, eg. [File:Atlas Schoemaker-UTRECHT-DEEL1-3120-Utrecht, Utrecht.jpeg](https://commons.wikimedia.org/wiki/File:Atlas_Schoemaker-UTRECHT-DEEL1-3120-Utrecht,_Utrecht.jpeg).
+
+  A handy way to get all files from a category, in this case [Category:Atlas_Schoemaker-Utrecht](https://commons.wikimedia.org/wiki/Category:Atlas_Schoemaker-Utrecht) is via the API call  https://commons.wikimedia.org/w/api.php?action=query&generator=categorymembers&gcmlimit=500&gcmtitle=Category:Atlas_Schoemaker-Utrecht&format=xml&gcmnamespace=6 and clean up that XML using a regexp. 
+
 * **CommonsMid**: the media ID (M-number) of the file. It consists of 'M + Page ID', where the Page ID of the file is listed in the [Page information](https://commons.wikimedia.org/w/index.php?title=File:Atlas_Schoemaker-UTRECHT-DEEL1-3120-Utrecht,_Utrecht.jpeg&action=info), so in this case 41686589.<br/> 
-An easy way to find M-numbers (in bulk) from file titles is by using the [Minefield tool](https://hay.toolforge.org/minefield/). You can copy-paste the full *CommonsFile* column into the tool, run it and obtain a list of M-numbers ("mid" in the CSV) 
+
+  An easy way to find M-numbers (in bulk) from file titles is by using the [Minefield tool](https://hay.toolforge.org/minefield/). You can copy-paste the full *CommonsFile* column into the tool, run it and obtain a list of M-numbers ("mid" in the CSV) 
 * **QidDepicts**: The Wikidata Q-numbers (Qids) of the things that are depicted in the files (in case P180 is used). Use one Qid per row. See the yellow, green, blue etc. rows for examples of multiple values for the same file. 
-In the Excel, the column *DepictsLabelForReconciliation* is a helper column, as input for reconciliation via OpenRefine, to find the Qids that correspond to the labels in that column. This column is not used in the script. 
+
+  In the Excel, the column *DepictsLabelForReconciliation* is a helper column, as input for reconciliation via OpenRefine, to find the Qids that correspond to the labels in that column. This column is not used in the script. 
 
 Of course, you can modify the variable names in the script and the columns names in the Excel to your own needs/taste.
 
