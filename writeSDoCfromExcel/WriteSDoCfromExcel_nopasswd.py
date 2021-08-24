@@ -63,16 +63,45 @@ def getPropertyQids(mediaid, property):
     """
     apiurl = 'https://commons.wikimedia.org/w/api.php?action=wbgetentities&ids=%s&&format=json' % (mediaid)
     headers = {'Accept': 'application/json', 'User-Agent': 'User OlafJanssen - %s - %s' % (mediaid, property)}
+    qlist = []
     response = requests.get(apiurl, headers=headers)
     data = json.loads(response.text)
-    props = data.get('entities', 'XX').get(mediaid).get('statements', 'XX').get(property, 'XX')
-    #print('Props: %s' % (props))
-    qlist = []
-    if str(props) != 'XX':
-       for p in range(0, len(props)):
-           qid= props[p].get('mainsnak', 'XX').get('datavalue', 'XX').get('value').get('id', 'XX')
-           qlist.append(qid)
-    else: print('In file %s there are no Qids for %s yet' % (mediaid,property))
+    #print('data: %s' % data)
+    # Totally no StrucData in file yet
+    missing=data.get('entities', 'XX').get(mediaid, 'XX').get('missing', 'XX')
+    #print("Missing = %s" % missing)
+    if missing != '':
+        props = data.get('entities', 'XX').get(mediaid, 'XX').get('statements', 'XX').get(property, 'XX')
+        #print('Props: %s' % (props))
+        if str(props) != 'XX':
+           for p in range(0, len(props)):
+               # some possible forms of p
+               #  - mainsnak --> datavalue --> value --> id
+               #  - mainsnak --> datavalue --> value --> XX (non-id, eg time)
+               #  - mainsnak --> snaktype:"somevalue"
+               mainsnak = props[p].get('mainsnak', 'XX')
+               #print('mainsnak: %s' %  mainsnak)
+               if mainsnak !='XX':
+                   snaktype = mainsnak.get('snaktype', 'XX')
+                   #print('snaktype: %s' % snaktype)
+                   if snaktype != 'XX':
+                       if snaktype == 'somevalue':
+                           qlist = []
+                       elif snaktype == 'value':
+                           value = mainsnak.get('datavalue', 'XX').get('value', 'XX')
+                           #print('value: %s' % value)
+                           if value != 'XX':
+                               qid= value.get('id', 'XX')
+                               if qid != 'XX':
+                                   #print('qid: %s' % qid)
+                                   qlist.append(qid)
+                           else:pass
+                       else:pass
+                   else:pass
+               else: pass
+        else: print('In file %s there are no Qids for %s yet' % (mediaid,property))
+    else: qlist=[]
+    #print('qlist: %s' % qlist)
     return qlist
 
 ############################################################################
@@ -80,8 +109,8 @@ api_url = 'https://commons.wikimedia.org/w/api.php'
 
 # Your Wikimedia credentials
 # If left blank, or if incorrect (eg wrong passwd), the edit will still be done, but will be shown as done from your IP address
-USER=u'your-wikimedia-username'
-PASS=u'your-wikimedia-passwd'
+USER=u'yourusername'
+PASS=u'yourpasswd'
 USER_AGENT='%s adding Qids to SDoC using a Python script and the Common API' % (USER)
 
 headers={'User-Agent': USER_AGENT}
@@ -107,24 +136,32 @@ dfdict=df2.to_dict(orient='records')
 # Target property to add Qids to
 property = "P180"
 
-#for i in range(0,3):
-#for i in range(100,200):
+skippedlist = []
+addedlist = []
+#for i in range(0,22):
+#for i in range(285,286):
 for i in range(0,len(df2)):
     rowdict = dfdict[i]
     qid = rowdict.get('QidDepicts', 'XX')
     if str(qid) != 'XX':
         commonsmid = rowdict.get('CommonsMid', 'XX')
         commonsfile = rowdict.get('CommonsFile', 'XX')
-        print("Trying to add %s to %s in Commons file %s (= %s)" % (qid, property, commonsmid,  commonsfile))
-        plist = getPropertyQids(commonsmid,property)
-        print("Already existing Qids for %s in Commons file %s: %s" % (property, commonsmid, plist))
-        if qid not in plist:
-            editsummary= 'Added %s to %s in %s (= %s) via the Commons API' % (qid, property, commonsmid, commonsfile)
-            print('Editsummary: %s' % (editsummary))
-            # Now do the actual write/post to the API
-            addClaim(commonsmid, property, qid, editsummary)
-            print('SUCCESS: %s successfully added to %s in %s (= %s)' % (qid, property, commonsmid, commonsfile))
-        else: print("SKIPPED: Did not add %s to %s in Commons file %s, as it already exists" % (qid, property, commonsmid))
+        if commonsfile != 'XX' and commonsmid != 'XX':
+            print("Trying to add %s to %s in Commons file %s (= %s)" % (qid, property, commonsmid,  commonsfile))
+            plist = getPropertyQids(commonsmid,property)
+            print("Already existing Qids for %s in Commons file %s: %s" % (property, commonsmid, plist))
+            if qid not in plist:
+                editsummary= 'Added %s to %s in %s (= %s) via the Commons API' % (qid, property, commonsmid, commonsfile)
+                print('Editsummary: %s' % (editsummary))
+                # Now do the actual write/post to the API
+                addClaim(commonsmid, property, qid, editsummary)
+                print('SUCCESS: %s successfully added to %s in %s (= %s)' % (qid, property, commonsmid, commonsfile))
+                addedlist.append(commonsmid)
+            else:
+                print("SKIPPED: Did not add %s to %s in Commons file %s, as it already exists" % (qid, property, commonsmid))
+                skippedlist.append(commonsmid)
+        else: print('commonsfile != XX AND commonsmid != XX')
     else: print('ERROR -- Something went wrong: str(qid) = "XX"')
     print('-'*40)
-
+print('skippedlist: %s : %s' % (len(skippedlist),skippedlist))
+print('addedlist: %s : %s' % (len(addedlist),addedlist))
