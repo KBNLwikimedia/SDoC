@@ -1,4 +1,4 @@
-# Add structured data to files on Wikimedia Commons from an Excel sheet
+# Add structured data to files on Wikimedia Commons from an Excel sheet - beta
 
 ## What this script does
 [This script](./WriteSDoCfromExcel_nopasswd.py) writes Property-Qid pairs from an Excel sheet to the [Structured Data](https://commons.wikimedia.org/wiki/Commons:Structured_data) of files on Wikimedia Commons.
@@ -29,7 +29,7 @@ Additionally, in the script itself:
 * **Wikimedia credentials**: You can specify your Wikimedia username and passwd in the USER and PASS variables. If left blank, or if incorrect (eg. you entered an incorrect passwd), the edit will still be done, but will be shown as done from your IP address.
 
 ## Disclaimer & improvements
-This script has not been not fully tested and/or is 100% reliable. You might encounter some errors when running it, especially for target properties other than P180 and messy Excel-inputs. Always test with a small number of Excel rows (*for i in range(0,3):*) to make sure everything works as expected before running the full sheet (*for i in range(0,len(df2)):*)
+This script is still in beta, it has not been not fully tested and/or is 100% reliable. You might encounter some errors when running it, especially for target properties other than P180 and messy Excel-inputs. Always test with a small number of Excel rows (*for i in range(0,3):*) to make sure everything works as expected before running the full sheet (*for i in range(0,len(df2)):*)
 
 ## Known bugs & issues / 23-08-2021
 * Processing of JSON responses is known not to be 100% fluent at the moment, you might get errors for non-P180 properties. Olaf is fixing these bugs at the moment
