@@ -35,6 +35,9 @@ This script is still in beta, it has not been not fully tested and/or is 100% re
 * Processing of JSON responses is known not to be 100% fluent at the moment, you might get errors for non-P180 properties. Olaf is fixing these bugs at the moment
 * [Let me know](https://github.com/KBNLwikimedia/SDoC/issues) any bugs you encounter via Github.
 
+## Improvements
+* Make it availabe on PAWS (Wikimedia Jypyter notebook cloud service)
+
 ## Credits
 The script is written by [User:OlafJanssen](https://commons.wikimedia.org/wiki/User:OlafJanssen). It uses the *addClaim* function in [this script](https://github.com/multichill/toollabs/blob/1d5ef0ea24333a4918d388fe0fdade12d97b66ac/bot/erfgoed/wikidata_to_monuments_list.py) by [User:Multichill](https://commons.wikimedia.org/wiki/User:Multichill) 
 
