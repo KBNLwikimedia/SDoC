@@ -1,14 +1,19 @@
 """
-https://github.com/KBNLwikimedia/SDoC/tree/main/writeSDoCfromExcel
+https://github.com/KBNLwikimedia/SDoC/tree/main/writeSDoCfromExcel 
+https://commons.wikimedia.org/wiki/Commons:WriteSDoCfromExcel
 
-This scripts writes Property-Qid pairs from an Excel sheet to the Structured Data of a file on Wikimedia Commons using the Commons API.
+This scripts writes Property-Qid pairs from an Excel sheet to the structured data of a file on Wikimedia Commons using the Commons API.
+
 For instance it can write P180-Depicts --> Q284865 to https://commons.wikimedia.org/wiki/File:Atlas_Schoemaker-UTRECHT-DEEL1-3120-Utrecht,_Utrecht.jpeg
-See P180Inputfile.xlsx for the expected input format and column names (This example Excel is about adding P180-Depicts values to a Commons file,
-but this script is also able to add Wikidata Qids to other properties (than P180) of the Structured Data of a file
+
+See P180Inputfile.xlsx for the expected input format and column names 
+
+This example Excel is about adding P180-Depicts values to a Commons file, but this script is also able to add Wikidata Qids to other properties (than P180) of the structured data of a file
 
 Script written by User:OlafJanssen, many thanks to User:Multichill
 Feel free to adapt, license = CC0
 """
+
 import requests
 import json
 import os, os.path
