@@ -1,5 +1,7 @@
 # Add structured data to files on Wikimedia Commons from an Excel sheet - beta
 
+*See also: https://commons.wikimedia.org/wiki/Commons:WriteSDoCfromExcel*
+
 ## What this script does
 [This script](./WriteSDoCfromExcel_nopasswd.py) writes Property-Qid pairs from an Excel sheet to the [Structured Data](https://commons.wikimedia.org/wiki/Commons:Structured_data) of files on Wikimedia Commons.
 
