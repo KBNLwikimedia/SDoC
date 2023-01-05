@@ -1,7 +1,7 @@
 {
     "name" : "writeSDoCfromExcel",
     "title" : "writeSDoCfromExcel",
-    "description" : "This Python script writes Property-Qid pairs from an Excel sheet to the structured data of files on Wikimedia Commons.",
+    "description" : "This Python script writes Property-Qid pairs from an Excel sheet to the structured data (SD) of files on Wikimedia Commons (SDoC).",
     "url" : "https://github.com/KBNLwikimedia/SDoC/blob/main/writeSDoCfromExcel/WriteSDoCfromExcel_nopasswd.py",
     "keywords" : "Structured data, SDC, SDoC, Wikimedia Commons, Commons, Excel",
     "author" : "Olaf Janssen",
