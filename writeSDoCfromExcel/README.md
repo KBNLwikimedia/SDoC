@@ -5,7 +5,7 @@
 
 For instance it can add [Q284865](https://www.wikidata.org/wiki/Q284865) to the [P180 property](https://www.wikidata.org/wiki/Property:P180) (*Depicts*) of the file https://commons.wikimedia.org/wiki/File:Atlas_Schoemaker-UTRECHT-DEEL1-3120-Utrecht,_Utrecht.jpeg from the Excel file [P180Inputfile.xlsx](P180Inputfile.xlsx) (row 2 in that Excel).
 
-Althought mainly intended to add P180-values in bulk, this script is also able to add Wikidata Qids to other properties (than P180) in the structured data.
+Althought mainly intended to add P180 values in bulk, this script is also able to add Wikidata Qids to other properties (than P180) in the structured data.
 
 ## Configuration
 The Python and the Excel files need to be in the same folder/directory.
