@@ -44,7 +44,7 @@ This script is still in beta, it has not been not fully tested and/or is 100% re
 The script is written by [User:OlafJanssen](https://commons.wikimedia.org/wiki/User:OlafJanssen). It uses the *addClaim* function in [this script](https://github.com/multichill/toollabs/blob/1d5ef0ea24333a4918d388fe0fdade12d97b66ac/bot/erfgoed/wikidata_to_monuments_list.py) by [User:Multichill](https://commons.wikimedia.org/wiki/User:Multichill) 
 
 ## Reusing this script
-Feel free to reuse, adapt, license = CC0
+The contents of this page are released into the public domain under the [Creative Commons Zero v1.0 Universal license](LICENSE) and can therefore be reused freely and openly. Attribution (*KB, national library of the Netherlands*) is not required, but still appreciated.
 
 
 
