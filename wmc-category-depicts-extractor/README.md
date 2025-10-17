@@ -1,4 +1,4 @@
-# Wikimedia Commons category depicts (P180) extractor
+# Wikimedia Commons category Depicts (P180) extractor
 
 *Lists all things depicted in all images in a Wikimedia Commons category* 
 
@@ -30,7 +30,7 @@ The corresponding CSV‑like file will contain the columns:
 
 * `midURL` : the Commons MediaInfo identifier of the image file, rendered as URL
 * `title` : the title/name of the file, including the `File:` prefix
-* `depicts_count` : the nummber of depicted things in the file
+* `depicts_count` : the number of depicted things in the file
 * `depicts` (a `---` joined list like `Label (https://www.wikidata.org/wiki/Q123)`)
 
 ## How to use
@@ -89,7 +89,7 @@ To facilitate smooth imports of this CSV into Excel, the file uses a multi‑cha
 
 ## Licensing
 
-<image src="https://kbnlwikimedia.github.io/SDoC/media/icon_cc0.png" width="100" hspace="10" align="right"/>
+<image src="../media/icon_cc0.png" width="100" hspace="10" align="right"/>
 
 * **Code:** [CC0 1.0 public domain dedication](https://github.com/KBNLwikimedia/GLAMorousToHTML/blob/main/LICENSE). Feel free to reuse and adapt.
 * **Attribution:** Inspired by item 47b in the KB article:
@@ -97,7 +97,7 @@ To facilitate smooth imports of this CSV into Excel, the file uses a multi‑cha
 
 ## Contact
 
-<image src="https://kbnlwikimedia.github.io/SDoC/media/icon_kb2.png" width="200" hspace="10" align="right"/>
+<image src="../media/icon_kb2.png" width="200" hspace="10" align="right"/>
 
 * Author: Olaf Janssen — Wikimedia coordinator [@KB, national library of the Netherlands](https://www.kb.nl)
 * You can find his contact details on his [KB expert page](https://www.kb.nl/over-ons/experts/olaf-janssen) or via his [Wikimedia user page](https://commons.wikimedia.org/wiki/User:OlafJanssen).
