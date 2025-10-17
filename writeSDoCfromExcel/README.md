@@ -5,6 +5,7 @@ This tool reads an Excel sheet and adds **Wikidata QIDs** to **Structured Data o
 It’s designed for IDE use (PyCharm/VS Code): configure the `CONFIG` dict in the script and run.
 
 See also: [https://commons.wikimedia.org/wiki/Commons:WriteSDoCfromExcel](https://commons.wikimedia.org/wiki/Commons:WriteSDoCfromExcel)
+
 *Latest update*: **17 October 2025**
 
 ---
