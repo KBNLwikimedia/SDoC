@@ -91,7 +91,7 @@ To facilitate smooth imports of this CSV into Excel, the file uses a multi‑cha
 
 <image src="../media/icon_cc0.png" width="100" hspace="10" align="right"/>
 
-* **Code:** [CC0 1.0 public domain dedication](https://github.com/KBNLwikimedia/GLAMorousToHTML/blob/main/LICENSE). Feel free to reuse and adapt.
+* **Code:** [CC0 1.0 public domain dedication](LICENSE). Feel free to reuse and adapt.
 * **Attribution:** Inspired by item 47b in the KB article:
   [50 cool new things you can now do with KB’s collection highlights - Part 5, Reuse](https://kbnlwikimedia.github.io/KBCollectionHighlights/stories/Cool%20new%20things%20you%20can%20now%20do%20with%20the%20KB's%20collection%20highlights/Part%205%2C%20Reuse.html)
 
